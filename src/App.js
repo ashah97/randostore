@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import AddItems from './pages/AddItems'
+import Items from './pages/Items'
+import Checkout from './pages/Checkout'
+import AppNavbar from './components/AppNavbar'
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/items" element={<Items />} />
+        <Route path="/add-items" element={<AddItems />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
     </div>
   );
 }
+
+function Home() {
+  return (<><AppNavbar/>
+  <Container>
+    <h1>Welcome to Rando Store</h1>
+    <h3>An amazing place for online shopping</h3>
+  </Container>  
+  </>
+  
+  );
+}
+
 
 export default App;
